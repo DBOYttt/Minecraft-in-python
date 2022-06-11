@@ -9,7 +9,7 @@ bar_1_button = Button(model = 'cube', scale = (0.36,0.12), position = Vec3(0,0.1
 
 bar_2_button = Button(model = 'cube', scale = (0.36,0.12), position = Vec3(0,-0.1,0), text = 'quit')
 
-screen = Entity()
+screen = Entity(model = 'cube', texture = 'minecraftjavaeditiontlo.jpg', scale = (15,8))
 
 
 
