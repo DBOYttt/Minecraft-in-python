@@ -1,3 +1,4 @@
+from turtle import position
 from ursina import *
 from ursina import texture
 from ursina.prefabs.first_person_controller import FirstPersonController 
@@ -17,4 +18,14 @@ class Voxel(Button):
             highlight_color = color.lime,
         )
 
+for z in range(8):
+    for x in range(8):
+        voxel = Voxel(position = (x, 0, z))
+
+
+def input(key):
+    if key == 'left mouse down': 
+        hit_info = raycast(camera.world_position, camera.forward, distance = 5)
+        if hit_info.hit:
+            Voxel(position = hit_info.entity.position + hit_info.normal)
 app.run()
