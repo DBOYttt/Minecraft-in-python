@@ -13,7 +13,7 @@ class Voxel(Button):
             position = position,
             model = 'cube', 
             origin_y = .5,
-            texture = 'gray_cube',
+            texture = 'white_cube',
             color = color.color(0, 0, random.uniform(0.9, 1.0)),
             highlight_color = color.lime,
         )
@@ -28,4 +28,6 @@ def input(key):
         hit_info = raycast(camera.world_position, camera.forward, distance = 5)
         if hit_info.hit:
             Voxel(position = hit_info.entity.position + hit_info.normal)
+
+player = FirstPersonController()
 app.run()
