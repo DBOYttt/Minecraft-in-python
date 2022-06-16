@@ -13,18 +13,25 @@ class Voxel(Button):
             position = position,
             model = 'cube', 
             origin_y = .5,
-            texture = 'white_cube',
+            texture = 'ulam.png',
             color = color.color(0, 0, random.uniform(0.9, 1.0)),
             highlight_color = color.lime,
         )
 
 for z in range(8):
     for x in range(8):
-        voxel = Voxel(position = (x, 0, z))
+        for y in range(8):
+         voxel = Voxel(position = (x, -y, z))
 
 
 def input(key):
     if key == 'left mouse down': 
+        hit_info = raycast(camera.world_position, camera.forward, distance = 5)
+        if hit_info.hit:
+            Voxel(ignore = True, visible = False)
+
+def input(key):
+    if key == 'right mouse down': 
         hit_info = raycast(camera.world_position, camera.forward, distance = 5)
         if hit_info.hit:
             Voxel(position = hit_info.entity.position + hit_info.normal)
