@@ -28,7 +28,7 @@ def input(key):
     if key == 'left mouse down': 
         hit_info = raycast(camera.world_position, camera.forward, distance = 5)
         if hit_info.hit:
-            Voxel(ignore = True, visible = False)
+            Voxel(position = hit_info.entity.position - hit_info.normal)
 
 def input(key):
     if key == 'right mouse down': 
